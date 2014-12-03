@@ -1,0 +1,27 @@
+#!/bin/bash
+USERID=${USERID:-$_USERID}
+GROUPID=${GROUPID:-$_GROUPID}
+USERNAME=${USERNAME:-$_USERNAME}
+GROUPNAME=${GROUPNAME:-$_GROUPNAME}
+
+if [ $USERID -ne $_USERID ]; then
+    usermod -u $USERID $_USERNAME
+fi
+
+if [ $GROUPID -ne $_GROUPID ]; then
+    groupmod -g $GROUPID $_GROUPNAME
+fi
+
+if [ $USERNAME != $_USERNAME ]; then
+    usermod -l $USERNAME $_USERNAME
+fi
+
+if [ $GROUPNAME != $_GROUPNAME ]; then
+    groupmod -n $GROUPNAME $_GROUPNAME
+fi
+
+echo "USERNAME=$USERNAME" > /tmp/user-settings
+echo "GROUPNAME=$GROUPNAME" >> /tmp/user-settings
+echo "USERID=$USERID" >> /tmp/user-settings
+echo "GROUPID=$GROUPID" >> /tmp/user-settings
+cat /tmp/user-settings

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+groupadd -g $_GROUPID $_GROUPNAME
+useradd -g $_GROUPID -u $_USERID -M $_USERNAME
+mkdir -p /var/{log,run}/supervisor 
+

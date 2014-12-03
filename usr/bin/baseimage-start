@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/baseimage-runtime-init
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf

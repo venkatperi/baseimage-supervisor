@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/usr/bin/baseimage-update-user
+source /tmp/user-settings
+sed 's/{{USERNAME}}/'"${USERNAME}"'/g' -i /etc/supervisor/supervisord.conf
+chown -R $USERNAME:$GROUPNAME /var/{log,run}/supervisor
+chown -R $USERNAME:$GROUPNAME /etc/supervisor
+if [ -e /runtime-init ]; then
+   /runtime-init
+fi 
