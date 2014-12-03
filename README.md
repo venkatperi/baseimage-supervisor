@@ -1,0 +1,1 @@
+This is a Dockerfile for a ubuntu base image with supervisor loaded. By default, supervisor runs as `service`:`service` (21000:21000). This can be changed via environment variables `USERNAME`, `GROUPNAME`, `USERID` and `GROUPID`.
